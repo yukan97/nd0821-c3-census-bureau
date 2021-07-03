@@ -1,5 +1,6 @@
 from sklearn.metrics import fbeta_score, precision_score, recall_score
 from sklearn.naive_bayes import GaussianNB
+import pickle
 
 
 # Optional: implement hyperparameter tuning.
@@ -60,3 +61,12 @@ def inference(model, X):
         Predictions from the model.
     """
     return model.predict(X)
+
+
+def save_to_file(instance, filename):
+    with open(filename, 'wb') as f:
+        pickle.dump(instance, f)
+
+
+def load_from_file(filename):
+    return pickle.load(open(filename, 'rb'))
