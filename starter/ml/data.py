@@ -1,9 +1,14 @@
 import numpy as np
 from sklearn.preprocessing import LabelBinarizer, OneHotEncoder
 
+import logging
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
+logger = logging.getLogger()
+
 
 def process_data(
-    X, categorical_features=[], label=None, training=True, encoder=None, lb=None
+        X, categorical_features=[], label=None, training=True, encoder=None, lb=None
 ):
     """ Process the data used in the machine learning pipeline.
 
@@ -47,6 +52,7 @@ def process_data(
     if label is not None:
         y = X[label]
         X = X.drop([label], axis=1)
+
     else:
         y = np.array([])
 
@@ -61,7 +67,9 @@ def process_data(
     else:
         X_categorical = encoder.transform(X_categorical)
         try:
+
             y = lb.transform(y.values).ravel()
+
         # Catch the case where y is None because we're doing inference.
         except AttributeError:
             pass
