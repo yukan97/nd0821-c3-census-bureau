@@ -1,0 +1,5 @@
+outs:
+- md5: bb0aeaea0caa895600a9d7444f351759
+  size: 4042
+  path: naive_bias.sav
+  isexec: true

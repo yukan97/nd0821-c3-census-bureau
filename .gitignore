@@ -114,3 +114,4 @@ dmypy.json
 .pyre/
 /encoder
 /labelbinarizer
+/naive_bias.sav
