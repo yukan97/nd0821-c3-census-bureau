@@ -1,5 +1,0 @@
-outs:
-- md5: 6a15a80c3cf963036a0fd3932e35700e
-  size: 4010
-  path: naive_bias.pkl
-  isexec: true

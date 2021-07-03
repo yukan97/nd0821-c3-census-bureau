@@ -40,10 +40,14 @@ X_test, y_test, test_encoder, test_lb = process_data(
 
 with open("encoder", "wb") as f:
     pickle.dump(encoder, f)
+with open("labelbinarizer", "wb") as f:
+    pickle.dump(lb, f)
 
 # Train and save a model.
 model = train_model(X_train, y_train)
-logger.info(type(model))
+
+with open('naive_bias.sav', 'wb') as f:
+    pickle.dump(model, f)
 
 preds = inference(model, X_test)
 
@@ -52,7 +56,6 @@ precision, recall, fbeta = compute_model_metrics(y_test, preds)
 logger.info(f"precision: {str(precision)} recall {str(recall)} fbeta {str(fbeta)}")
 
 data_slice(feature, y_test, preds)
-# save the model to disk
-with open('naive_bias.pkl', 'wb') as f:
-    pickle.dump(model, f)
+
+
 
