@@ -3,15 +3,22 @@ from fastapi import Body, FastAPI
 from pydantic import BaseModel
 from typing import List
 import pandas as pd
+import os
 
 from starter.ml.data import process_data
 from starter.ml.model import inference
 import pickle
 import logging
+
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 logger = logging.getLogger()
 
 
+if "DYNO" in os.environ and os.path.isdir(".dvc"):
+    os.system("dvc config core.no_scm true")
+    if os.system("dvc pull") != 0:
+        exit("dvc pull failed")
+    os.system("rm -r .dvc .apt/usr/lib/dvc")
 
 # result = loaded_model.score(X_test, Y_test)
 
