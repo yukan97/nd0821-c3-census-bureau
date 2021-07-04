@@ -2,7 +2,7 @@ name: Python application
 
 on:
   push:
-    branches: [ $default-branch ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.6, 3.7, 3.8]
+        python-version: [3.8.11]
         
     steps:
     - uses: actions/checkout@v2
@@ -31,7 +31,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        pytest
+        pytest 
         
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
