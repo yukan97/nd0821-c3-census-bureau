@@ -6,7 +6,7 @@ import pandas as pd
 import os
 
 from starter.ml.data import process_data
-from starter.ml.model import inference
+from starter.ml.model import inference, load_from_file
 import pickle
 import logging
 
@@ -98,9 +98,9 @@ async def create_item(data: Data = Body(None,
 
     data = pd.DataFrame.from_dict(dict)
 
-    loaded_encoder = pickle.load(open('encoder', 'rb'))
-    loaded_model = pickle.load(open('naive_bias.sav', 'rb'))
-    loaded_lb = pickle.load(open('labelbinarizer', 'rb'))
+    loaded_encoder = load_from_file('encoder')
+    loaded_model = load_from_file('naive_bias.sav')
+    loaded_lb = load_from_file('labelbinarizer')
 
     X, _, _, _ = process_data(
         data, categorical_features=cat_features, training=False, encoder=loaded_encoder

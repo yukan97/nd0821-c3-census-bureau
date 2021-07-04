@@ -2,6 +2,7 @@ from sklearn.metrics import fbeta_score, precision_score, recall_score
 from sklearn.naive_bayes import GaussianNB
 import pickle
 import dvc.api
+import io
 
 
 # Optional: implement hyperparameter tuning.
@@ -70,9 +71,11 @@ def save_to_file(instance, filename):
 
 
 def load_from_file(filename):
-    return pickle.load(
+
+    return pickle.loads(
         dvc.api.read(
             filename,
             repo='https://github.com/yukan97/nd0821-c3-census-bureau.git',
             mode='rb'
-        ))
+        )
+    )
