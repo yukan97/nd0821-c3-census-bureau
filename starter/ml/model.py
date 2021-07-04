@@ -2,7 +2,6 @@ from sklearn.metrics import fbeta_score, precision_score, recall_score
 from sklearn.naive_bayes import GaussianNB
 import pickle
 import dvc.api
-import io
 
 
 # Optional: implement hyperparameter tuning.

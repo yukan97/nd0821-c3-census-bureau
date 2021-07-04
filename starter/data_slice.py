@@ -1,12 +1,12 @@
-import pandas as pd
 import numpy as np
 from ml.model import compute_model_metrics
 import logging
+
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 logger = logging.getLogger()
 
-def data_slice(feature, y_test, preds):
 
+def data_slice(feature, y_test, preds):
     data = np.column_stack((feature, y_test, preds))
 
     for cls in np.unique(feature):
@@ -16,4 +16,3 @@ def data_slice(feature, y_test, preds):
         logger.info(f"For {cls} - precision: {str(precision)} recall {str(recall)} fbeta {str(fbeta)}")
         with open('slice_output.txt', 'a') as f:
             f.write(f"For {cls} - precision: {str(precision)} recall {str(recall)} fbeta {str(fbeta)}\n")
-

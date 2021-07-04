@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 # Add the necessary imports for the starter code.
 import pandas as pd
 from ml.data import process_data
-from ml.model import train_model, compute_model_metrics, inference, save_to_file, load_from_file
+from ml.model import train_model, compute_model_metrics, inference, save_to_file
 from data_slice import data_slice
 
 import logging

@@ -5,6 +5,7 @@ from sklearn.naive_bayes import GaussianNB
 from starter.ml.model import train_model, compute_model_metrics, inference
 
 import logging
+
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 logger = logging.getLogger()
 
@@ -23,10 +24,10 @@ cat_features = [
 @pytest.fixture(scope='session')
 def data():
     X = np.array([[1, 2, 3.0, 4, 5, 6],
-                        [7, 8, 9.0, 10, 11, 12],
-                        [14, 15, 1.0, 16, 17, 18],
-                        [1, 2, 5.0, 4, 5, 6],
-                        [2, 3, 4.0, 5, 5, 6]])
+                  [7, 8, 9.0, 10, 11, 12],
+                  [14, 15, 1.0, 16, 17, 18],
+                  [1, 2, 5.0, 4, 5, 6],
+                  [2, 3, 4.0, 5, 5, 6]])
 
     y = np.array([1, 0, 1, 1, 0])
     return X, y
@@ -49,7 +50,6 @@ def test_train_model(data):
 
 
 def test_inference(data):
-
     X, y = data
     model = GaussianNB()
     model = model.fit(X, y)
@@ -62,7 +62,6 @@ def test_inference(data):
 
 
 def test_compute_model_metrics(data, preds):
-
     _, y = data
     precision, recall, fbeta = compute_model_metrics(y, preds)
     assert isinstance(precision, float), \
