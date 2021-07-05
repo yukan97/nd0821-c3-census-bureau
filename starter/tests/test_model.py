@@ -1,5 +1,4 @@
 import pytest
-import pandas as pd
 import numpy as np
 from sklearn.naive_bayes import GaussianNB
 from starter.ml.model import train_model, compute_model_metrics, inference

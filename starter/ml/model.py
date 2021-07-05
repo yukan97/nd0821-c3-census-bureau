@@ -70,8 +70,6 @@ def save_to_file(instance, filename):
 
 
 def load_from_file(filename):
-
-    """
     return pickle.loads(
         dvc.api.read(
             filename,
@@ -79,5 +77,3 @@ def load_from_file(filename):
             mode='rb'
         )
     )
-    """
-    return pickle.load(open(filename, 'rb'))

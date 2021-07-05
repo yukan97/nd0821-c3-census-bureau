@@ -99,6 +99,6 @@ async def create_item(data: Data = Body(None,
     X, _, _, _ = process_data(
         data, categorical_features=cat_features, training=False, encoder=loaded_encoder
     )
-    preds = inference(loaded_model, X)
+    preds = inference(loaded_model, X.reshape(1,108))
     preds = loaded_lb.inverse_transform(preds)
     return preds[0]
