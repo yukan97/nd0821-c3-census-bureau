@@ -70,10 +70,5 @@ def save_to_file(instance, filename):
 
 
 def load_from_file(filename):
-    return pickle.loads(
-        dvc.api.read(
-            filename,
-            repo='https://github.com/yukan97/nd0821-c3-census-bureau.git',
-            mode='rb'
-        )
-    )
+    
+    return pickle.load(open(filename, 'rb'))
