@@ -13,21 +13,19 @@ For additional information see the Model Card paper: https://arxiv.org/pdf/1810.
 
 ## Training Data
 * The data was obtained from the UCI Machine Learning Repository (https://archive.ics.uci.edu/ml/datasets/census+income).
-* The original dataset contains 48842 rows, and after 80-20 split 80% of the data was used for training.
+* The original dataset contains 48842 rows, and after an 80-20 split 80% of the data was used for training.
 * For encoding features was used OneHotEncoder, for encoding labels was used LabelBinarizer.
 
-
-
 ## Evaluation Data
-* 20% from the original data was used for testing purposes.
+* 20% of the original data was used for testing purposes.
 
 ## Metrics
-* Evaluation metrics include precision, recall and fbeta. Where explains what portion of positives was actually correct; recall explains how many true positives were identified correctly and fbeata is is the weighted harmonic mean of precision and recall.
+* Evaluation metrics include precision, recall, and fbeta. Where explains what portion of positives was correct; recall explains how many true positives were identified correctly and fbeata is is the weighted harmonic mean of precision and recall.
 * Proposed model achieved precision: 0.67 recall 0.32 fbeta 0.43
 
 ## Ethical Considerations
-* Demographic data was obtained from puclic 1994 Census Database. No new information is inferred or annotated.
+* Demographic data were obtained from the public 1994 Census Database. No new information is inferred or annotated.
 
 ## Caveats and Recommendations
-* Would be apropriate to do feature engineering and verify the distributions.
-* Given gender classes are binary (male/female), would be better to obtain range of genders for further evaluation.
+* Would be appropriate to do feature engineering and verify the distributions.
+* Given gender classes are binary (male/female), would be better to obtain the range of genders for further evaluation.

@@ -1,7 +1,6 @@
 from sklearn.metrics import fbeta_score, precision_score, recall_score
 from sklearn.naive_bayes import GaussianNB
 import pickle
-import dvc.api
 
 
 # Optional: implement hyperparameter tuning.
@@ -70,5 +69,4 @@ def save_to_file(instance, filename):
 
 
 def load_from_file(filename):
-    
     return pickle.load(open(filename, 'rb'))

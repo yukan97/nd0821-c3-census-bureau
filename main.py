@@ -7,7 +7,6 @@ import os
 from starter.ml.data import process_data
 from starter.ml.model import inference, load_from_file
 
-
 if "DYNO" in os.environ and os.path.isdir(".dvc"):
     os.system("dvc config core.no_scm true")
     if os.system("dvc pull") != 0:
@@ -99,6 +98,6 @@ async def create_item(data: Data = Body(None,
     X, _, _, _ = process_data(
         data, categorical_features=cat_features, training=False, encoder=loaded_encoder
     )
-    preds = inference(loaded_model, X.reshape(1,108))
+    preds = inference(loaded_model, X.reshape(1, 108))
     preds = loaded_lb.inverse_transform(preds)
     return preds[0]
